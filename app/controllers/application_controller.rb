@@ -35,6 +35,7 @@ class ApplicationController < Sinatra::Base
     if @user
       session[:user_id] = @user.id
       redirect '/users/home'
+        puts params
     end
     redirect '/sessions/login'
   end
@@ -49,5 +50,4 @@ class ApplicationController < Sinatra::Base
     @user = User.find(session[:user_id])
     erb :'/users/home'
   end
-  puts params
 end
